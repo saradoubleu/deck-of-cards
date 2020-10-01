@@ -1,5 +1,3 @@
-import React from "react";
-
 export const deckOfCards = [
   {
     id: 1,

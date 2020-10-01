@@ -1,18 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "./Button/Button";
 import CardDeck from "./CardDeck/CardDeck";
-import { deckOfCards, values } from "../data/data";
+import { deckOfCards } from "../data/data";
 
 const App = () => {
+  const [cards, setCards] = useState([]);
+  const [show, setShow] = useState(false);
+
   const renderCard = () => {
     console.log("Deck: ", deckOfCards);
+    setShow(true);
   };
 
   return (
     <div className="App">
       <h1>Playing Field</h1>
-      <CardDeck />
-      <Button onClick={renderCard} />{" "}
+      <Button onClick={renderCard} /> {show ? <CardDeck cards={cards} /> : null}
     </div>
   );
 };
