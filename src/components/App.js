@@ -1,21 +1,30 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import Button from "./Button/Button";
 import CardDeck from "./CardDeck/CardDeck";
-import { deckOfCards } from "../data/data";
+import "../i18n";
 
 const App = () => {
-  const [cards, setCards] = useState([]);
+  const { t, i18n } = useTranslation();
+
   const [show, setShow] = useState(false);
 
   const renderCard = () => {
-    console.log("Deck: ", deckOfCards);
     setShow(true);
+  };
+
+  const handleOnClick = (language) => {
+    i18n.changeLanguage(language);
   };
 
   return (
     <div className="App">
-      <h1>Playing Field</h1>
-      <Button onClick={renderCard} /> {show ? <CardDeck cards={cards} /> : null}
+      <nav>
+        <button onClick={() => handleOnClick("en")}>{t("english")}</button>
+        <button onClick={() => handleOnClick("fr")}>{t("french")}</button>
+      </nav>
+      <h1>{t("title")}</h1>
+      <Button onClick={renderCard} /> {show ? <CardDeck /> : null}
     </div>
   );
 };
