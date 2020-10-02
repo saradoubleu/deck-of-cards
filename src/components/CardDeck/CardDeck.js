@@ -7,11 +7,11 @@ const CardDeck = (props) => {
   let listOfDealtCards = currentDeck ? (
     <div>
       {" "}
-      <ul>
+      <span>
         {currentDeck.map((el) => (
           <Card key={el.toString()} value={el} />
         ))}
-      </ul>
+      </span>
     </div>
   ) : null;
 

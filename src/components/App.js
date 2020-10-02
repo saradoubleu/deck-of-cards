@@ -40,10 +40,16 @@ const App = () => {
   return (
     <div className="App">
       <nav>
-        <Button onClick={() => toggleLanguage("en")} label="english" />
-        <Button onClick={() => toggleLanguage("fr")} label="french" />
+        <span className="nav-item-1" onClick={() => toggleLanguage("en")}>
+          {t("english")}
+        </span>{" "}
+        |{" "}
+        <span className="nav-item-2" onClick={() => toggleLanguage("fr")}>
+          {t("french")}
+        </span>
       </nav>
       <h1>{t("title")}</h1>
+      <p> {t("description")} </p>
       <Button onClick={() => renderCard()} label="deal" />{" "}
       {show ? <CardDeck currentDeck={currentDeck} index={index} /> : null}
     </div>

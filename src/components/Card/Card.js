@@ -1,21 +1,39 @@
 import React from "react";
 
 const Card = (props) => {
-  const { deck, currentDeck, value } = props;
+  const { value } = props;
+  let suiteSymbol = value.split(" ")[0];
+  let rankSymbol = value.split(" ")[1].toUpperCase();
+
+  const switchSymbol = (suiteSymbol) => {
+    switch (suiteSymbol) {
+      case "hearts":
+        return "♥";
+      case "diamonds":
+        return "♦";
+      case "spades":
+        return "♠";
+      case "clubs":
+        return "♣";
+      default:
+        return "??";
+    }
+  };
 
   return (
-    <div className="card-wrapper">
-      <div
-        style={{
-          width: "10%",
-          height: "100px",
-          border: "solid",
-          padding: "1%",
-          margin: "5%",
-        }}
-      >
-        {value}
-      </div>
+    <div
+      className="card-wrapper"
+      style={
+        suiteSymbol == "hearts" || suiteSymbol == "diamonds"
+          ? { color: "red" }
+          : {}
+      }
+    >
+      <span className="suite-symbol-1">{switchSymbol(suiteSymbol)}</span>
+      <span>
+        <div className="rank-symbol">{rankSymbol.charAt()}</div>
+      </span>
+      <span className="suite-symbol-2">{switchSymbol(suiteSymbol)}</span>
     </div>
   );
 };
