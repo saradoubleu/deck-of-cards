@@ -1,6 +1,3 @@
-body {
-}
-
 nav {
   float: right;
 }
@@ -53,7 +50,8 @@ h1 {
   text-align: center;
   position: absolute;
   top: 41%;
-  left: 47%;
+  left: 39%;
+  font-size: 3em;
 }
 
 .suite-symbol-1 {

@@ -2,8 +2,8 @@ import React from "react";
 
 const Card = (props) => {
   const { value } = props;
-  let suiteSymbol = value.split(" ")[0];
-  let rankSymbol = value.split(" ")[1].toUpperCase();
+  let suiteSymbol = value ? value.split(" ")[0] : null;
+  let rankSymbol = value ? value.split(" ")[1].toUpperCase() : null;
 
   const switchSymbol = (suiteSymbol) => {
     switch (suiteSymbol) {
@@ -16,7 +16,7 @@ const Card = (props) => {
       case "clubs":
         return "♣";
       default:
-        return "??";
+        return "???";
     }
   };
 
@@ -24,7 +24,7 @@ const Card = (props) => {
     <div
       className="card-wrapper"
       style={
-        suiteSymbol == "hearts" || suiteSymbol == "diamonds"
+        suiteSymbol === "hearts" || suiteSymbol === "diamonds"
           ? { color: "red" }
           : {}
       }
