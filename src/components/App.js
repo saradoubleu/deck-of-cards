@@ -3,7 +3,12 @@ import { useTranslation } from "react-i18next";
 import Button from "./Button/Button";
 import CardDeck from "./CardDeck/CardDeck";
 import "../i18n";
-import { cardSuite, cardRank, standardCardDeckGenerator } from "../data/data";
+import {
+  cardSuite,
+  cardRank,
+  standardCardDeckGenerator,
+  shuffle,
+} from "../data/data";
 
 const App = () => {
   const { t, i18n } = useTranslation();
@@ -17,21 +22,12 @@ const App = () => {
     i18n.changeLanguage(language);
   };
 
-  //based on Durstenfeld/Knuth Shuffling Algorithm
-  const shuffle = (cards) => {
-    for (let i = cards.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [cards[i], cards[j]] = [cards[j], cards[i]];
-    }
-  };
-
   const dealOneCard = () => {
     let randomizedDeck = [];
     shuffle(standardDeckOfCards);
     setIndex((prev) => (prev + 1) % standardDeckOfCards.length);
     randomizedDeck = currentDeck.concat(standardDeckOfCards[index]);
     setCurrentDeck(randomizedDeck);
-    // console.log(currentDeck.length);
   };
 
   const renderCard = () => {

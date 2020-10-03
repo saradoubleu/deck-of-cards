@@ -11,9 +11,9 @@ const CardDeck = (props) => {
       <span>
         {currentDeck.map((el) => {
           while (currentDeck.length < 52) {
-            console.log(currentDeck.length);
             return <Card key={el.toString()} value={el} />;
           }
+          return null;
         })}
       </span>
     </div>
