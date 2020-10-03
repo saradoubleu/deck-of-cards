@@ -18,14 +18,13 @@ const App = () => {
 
   const standardDeckOfCards = standardCardDeckGenerator(cardSuite, cardRank);
 
-  let uniqueArray = [...new Set(standardDeckOfCards)];
-  console.log(uniqueArray);
   const dealOneCard = () => {
+    shuffle(standardDeckOfCards);
     let randomizedDeck = [];
     setShow(true);
     setIndex((prev) => (prev + 1) % standardDeckOfCards.length);
     randomizedDeck = currentDeck.concat(standardDeckOfCards[index]);
-    // console.log(standardDeckOfCards);
+    console.log(standardDeckOfCards[index]);
     setCurrentDeck(randomizedDeck);
   };
 
