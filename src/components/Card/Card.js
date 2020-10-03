@@ -31,7 +31,7 @@ const Card = (props) => {
     >
       <span className="suite-symbol-1">{switchSymbol(suiteSymbol)}</span>
       <span>
-        <div className="rank-symbol">{rankSymbol.charAt()}</div>
+        <div className="rank-symbol">{rankSymbol}</div>
       </span>
       <span className="suite-symbol-2">{switchSymbol(suiteSymbol)}</span>
     </div>

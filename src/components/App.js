@@ -3,12 +3,8 @@ import { useTranslation } from "react-i18next";
 import Button from "./Button/Button";
 import CardDeck from "./CardDeck/CardDeck";
 import "../i18n";
-import {
-  cardSuite,
-  cardRank,
-  standardCardDeckGenerator,
-  shuffle,
-} from "../data/data";
+import { cardSuite, cardRank } from "../data/data";
+import { standardCardDeckGenerator, shuffle } from "../helpers/cardGeneration";
 
 const App = () => {
   const { t, i18n } = useTranslation();
@@ -16,23 +12,21 @@ const App = () => {
   const [currentDeck, setCurrentDeck] = useState([]);
   const [index, setIndex] = useState(0);
 
-  const standardDeckOfCards = standardCardDeckGenerator(cardSuite, cardRank);
-
   const toggleLanguage = (language) => {
     i18n.changeLanguage(language);
   };
 
+  const standardDeckOfCards = standardCardDeckGenerator(cardSuite, cardRank);
+
+  let uniqueArray = [...new Set(standardDeckOfCards)];
+  console.log(uniqueArray);
   const dealOneCard = () => {
     let randomizedDeck = [];
-    shuffle(standardDeckOfCards);
+    setShow(true);
     setIndex((prev) => (prev + 1) % standardDeckOfCards.length);
     randomizedDeck = currentDeck.concat(standardDeckOfCards[index]);
+    // console.log(standardDeckOfCards);
     setCurrentDeck(randomizedDeck);
-  };
-
-  const renderCard = () => {
-    setShow(true);
-    dealOneCard();
   };
 
   return (
@@ -49,7 +43,7 @@ const App = () => {
         </nav>
         <h1>{t("title")}</h1>
         <p> {t("description")} </p>
-        <Button onClick={() => renderCard()} label="deal" />{" "}
+        <Button onClick={() => dealOneCard()} label="deal" />{" "}
       </div>
       {show ? <CardDeck currentDeck={currentDeck} index={index} /> : null}
     </div>
