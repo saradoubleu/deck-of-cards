@@ -17,7 +17,7 @@ const App = () => {
     i18n.changeLanguage(language);
   };
 
-  //Durstenfeld/Knuth Shuffling Algorithm
+  //based on Durstenfeld/Knuth Shuffling Algorithm
   const shuffle = (cards) => {
     for (let i = cards.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -26,9 +26,12 @@ const App = () => {
   };
 
   const dealOneCard = () => {
+    let randomizedDeck = [];
     shuffle(standardDeckOfCards);
     setIndex((prev) => (prev + 1) % standardDeckOfCards.length);
-    setCurrentDeck(currentDeck.concat(standardDeckOfCards[index]));
+    randomizedDeck = currentDeck.concat(standardDeckOfCards[index]);
+    setCurrentDeck(randomizedDeck);
+    // console.log(currentDeck.length);
   };
 
   const renderCard = () => {
@@ -38,18 +41,20 @@ const App = () => {
 
   return (
     <div className="App">
-      <nav>
-        <span className="nav-item-1" onClick={() => toggleLanguage("en")}>
-          {t("english")}
-        </span>{" "}
-        |{" "}
-        <span className="nav-item-2" onClick={() => toggleLanguage("fr")}>
-          {t("french")}
-        </span>
-      </nav>
-      <h1>{t("title")}</h1>
-      <p> {t("description")} </p>
-      <Button onClick={() => renderCard()} label="deal" />{" "}
+      <div>
+        <nav>
+          <span className="nav-item-1" onClick={() => toggleLanguage("en")}>
+            {t("english")}
+          </span>{" "}
+          |{" "}
+          <span className="nav-item-2" onClick={() => toggleLanguage("fr")}>
+            {t("french")}
+          </span>
+        </nav>
+        <h1>{t("title")}</h1>
+        <p> {t("description")} </p>
+        <Button onClick={() => renderCard()} label="deal" />{" "}
+      </div>
       {show ? <CardDeck currentDeck={currentDeck} index={index} /> : null}
     </div>
   );
