@@ -1,8 +1,9 @@
 # cardDecker
 
 <p align="center">
-<img align="center" width="460" height="300" src="https://images.app.goo.gl/EakCY15L14yYgBAi6">
+<img align="center" width="460" height="300" src="https://github.com/saradoubleu/deck-of-cards/blob/main/public/screenshot.png">
 </p>
+
 [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](http://shields.io/)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-no-red.svg)](https://bitbucket.org/lbesson/ansi-colors)
 
