@@ -1,7 +1,7 @@
 {
   "title": "cardDecker",
-  "description": "Randomly draw cards from a standard deck of 52 poker-style playing cards. This 52-card pack includes 4 suites clubs (♣), diamonds (♦), hearts (♥) and spades (♠ (Fifty-two playing cards in four suits: hearts, spades, clubs, diamonds, with face values of Ace, 2-10, Jack, Queen, and King.) and 13 ranks of which are .Ace, Jack, Queen, King and numbers two to ten",
+  "description": "Randomly draw cards from a standard deck of poker-style playing cards. This 52-card pack includes 4 suites; clubs (♣), diamonds (♦), hearts (♥) and spades (♠). Each suite of cards contain 13 ranks - Ace, the numbers 2 to 10, Jack, Queen, and King.",
   "french": "French",
   "english": "English",
-  "deal": "Draw a card"
+  "deal": "Deal a Card"
 }

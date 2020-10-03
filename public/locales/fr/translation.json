@@ -1,6 +1,7 @@
 {
-  "title": "carte à jouer",
-  "french": "francais",
+  "title": "cardDecker",
+  "description": "Tirez au hasard des cartes d'un jeu de cartes standard de style poker. Ce pack de 52 cartes comprend 4 suites; clubs (♣), diamants (♦), coeurs (♥) et piques (♠). Chaque suite de cartes contient 13 rangs - Ace, les nombres 2-10, Jack, Queen et King.",
+  "french": "française",
   "english": "anglais",
-  "deal": "distribuer"
+  "deal": "distribuer une carte"
 }

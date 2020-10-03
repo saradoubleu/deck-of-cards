@@ -29,7 +29,6 @@ const App = () => {
     shuffle(standardDeckOfCards);
     setIndex((prev) => (prev + 1) % standardDeckOfCards.length);
     setCurrentDeck(currentDeck.concat(standardDeckOfCards[index]));
-    console.log(currentDeck);
   };
 
   const renderCard = () => {
